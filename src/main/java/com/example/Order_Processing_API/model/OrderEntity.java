@@ -1,11 +1,14 @@
 package com.example.Order_Processing_API.model;
 
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class Order {
+@Table(name = "orders") // Renamed the table to avoid conflicts with reserved keywords
+public class OrderEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,8 +16,6 @@ public class Order {
     private String customer;
 
     @ElementCollection
-    @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
-    @Column(name = "item")
     private List<String> items;
 
     @Enumerated(EnumType.STRING)
@@ -22,9 +23,11 @@ public class Order {
 
     private LocalDateTime orderDate;
 
+    public OrderEntity() {
+        this.orderDate = LocalDateTime.now();
+    }
+
     // Getters and Setters
-
-
     public Long getId() {
         return id;
     }
@@ -65,4 +68,3 @@ public class Order {
         this.orderDate = orderDate;
     }
 }
-

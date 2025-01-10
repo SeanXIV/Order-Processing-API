@@ -12,7 +12,7 @@
 	<artifactId>Order-Processing-API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Order-Processing-System</name>
-	<description>Backend system for processing orders in an e-commerce application</description>
+	<description>Backend system for processing orderEntities in an e-commerce application</description>
 	<url/>
 	<licenses>
 		<license/>
